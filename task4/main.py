@@ -12,9 +12,12 @@ def input_error(func):
 
 def parse_input(user_input):
     """ Функція розбиття введеного рядку """
-    cmd, *args = user_input.split()
-    cmd = cmd.strip().lower()
-    return cmd, *args
+    try:
+        cmd, *args = user_input.split()
+        cmd = cmd.strip().lower()
+        return cmd, *args
+    except ValueError:
+        return "Please give command"
 
 @input_error
 def add_contact(args, contacts):

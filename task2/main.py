@@ -3,7 +3,7 @@ from typing import Callable, Generator
 
 def generator_numbers(text: str) -> Generator[float, None, None]:
     """ Функція генерації чисел з рядку """
-    for word in re.findall(r"\d+\.\d+", text):
+    for word in re.findall(r" \d+\.\d+ ", text):
         yield float(word)
 
 def sum_profit(text: str, func: Callable[[str], Generator[float, None, None]]) -> float:
